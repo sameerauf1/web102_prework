@@ -5,7 +5,7 @@
  */
 
 // import the JSON data about the crowd funded games from the games.js file
-import { Divider } from "@chakra-ui/react";
+//import { Divider } from "@chakra-ui/react";
 import GAMES_DATA from "./games.js";
 
 // create a list of objects to store the data about the games using JSON.parse
@@ -28,16 +28,19 @@ const gamesContainer = document.getElementById("games-container");
 
 // create a function that adds all data from the games array to the page
 function addGamesToPage(games) {
+  console.log("we are in addgames to page argument:", games);
   // loop over each item in the data
   for (let i = 0; i < games.length; i++) {
+    console.log("in the for loop");
     const card = document.createElement("div");
     card.classList.add("game-card");
     card.innerHTML = `
         <h3>${games[i].name}</h3>
-        <p>${games[i].description}</p
-        <img class="game-img" src="${games[i].img}" alt="${games[i].name}"> 
+        <p>${games[i].description}</p>
+        <img class="game-img" src="${games[i].img}" alt="${games[i].name}"/> 
         `;
-    gamesContainer.appendChild(GAMES_JSON);
+   // console.log("herer is teh card created: ", card);
+    gamesContainer.appendChild(card);
   }
 
   // create a new div element, which will become the game card
@@ -51,7 +54,7 @@ function addGamesToPage(games) {
 
   // append the game to the games-container
 }
-addGamesToPage(gamesContainer);
+addGamesToPage(GAMES_JSON);
 // call the function we just defined using the correct variable
 // later, we'll call this function using a different list of games
 
