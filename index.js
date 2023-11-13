@@ -39,7 +39,7 @@ function addGamesToPage(games) {
         <p>${games[i].description}</p>
         <img class="game-img" src="${games[i].img}" alt="${games[i].name}"/> 
         `;
-   // console.log("herer is teh card created: ", card);
+    // console.log("herer is teh card created: ", card);
     gamesContainer.appendChild(card);
   }
 
@@ -66,7 +66,10 @@ addGamesToPage(GAMES_JSON);
 
 // grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
-
+console.log("the contribution card element", contributionsCard);
+const totalContributions = GAMES_JSON.reduce((total, game) => {
+  total + game.backers;
+}, 0);
 // use reduce() to count the number of total contributions by summing the backers
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
