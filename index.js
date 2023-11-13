@@ -67,12 +67,18 @@ addGamesToPage(GAMES_JSON);
 // grab the contributions card element
 const contributionsCard = document.getElementById("num-contributions");
 console.log("the contribution card element", contributionsCard);
-const totalContributions = GAMES_JSON.reduce((total, game) => {
-  total + game.backers;
-}, 0);
+
 // use reduce() to count the number of total contributions by summing the backers
+const totalContributions = GAMES_JSON.reduce((total, game) => {
+  //2 arguments: counter & list of games
+  return total + game.backers;
+}, 0);
+console.log("the total contributions", totalContributions);
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
+contributionsCard.innerHTML = `Total Contributions: ${totalContributions.toLocaleString(
+  "en-US"
+)}`;
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
